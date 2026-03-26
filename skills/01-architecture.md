@@ -41,6 +41,11 @@ We prioritize tools that offer the best balance of efficiency and execution cost
 ### 2. Mobile Strategy
 - **Standard:** Use **Webview** clients for mobile applications to leverage existing frontend code and simplify cross-platform updates.
 
-### 3. Rigorous Planning
+### 3. Modular Monolith & DDD
+- **Context Separation:** Even when developed as a monolith, organized the application strictly by the **Bounded Contexts** defined during the DDD phase.
+- **Inter-Module Communication:** Ensure all communication between modules respects the directions defined by the DDD architecture. Accessing a resource (e.g., database table) managed by another module directly is prohibited.
+- **Internal APIs:** Each module must expose an internal API (a well-defined set of public methods) for consumption by other modules. This ensures that the system is ready for a future transition to microservices with minimal refactoring.
+
+### 4. Rigorous Planning
 - **DDD Phase:** Document a detailed Domain-Driven Design plan (Bounded Contexts, Aggregates) before any coding occurs.
 - **Implementation Planning:** Create an `implementation_plan.md` for every significant feature, specifying interfaces, routes, and APIs.
