@@ -15,14 +15,19 @@ This document defines the containerization and infrastructure standards for Eise
     - Go: Use official `golang` (alpine variants for production).
     - Node.js: Use official `node` (alpine variants for production).
 - **Caching:** Structure `Dockerfile` layers to maximize build cache efficiency (e.g., copy dependency manifests first).
+- **Arbitrary Users:** Always use arbitrary (non-root) users inside containers. **Root user is FORBIDDEN** inside containers except in extremely specific cases.
 
-## 3. Docker Compose for Development
-- **Naming Conventions:** Use lowercase, hyphenated names for services (e.g., `web-app`, `db-postgres`).
-- **Volume Mounts:** Use bind mounts for source code during development to enable hot-reloading.
-- **Environment Variables:** Provide a `.env.example` file. Never commit `.env` files with real secrets.
-- **Orphan Containers:** Cleanup unused containers regularly using `docker compose down --remove-orphans`.
+## 3. Docker Compose & Environment Management
+- **Service Naming:** Service names must reflect their **function**, not the technology (e.g., use `db` instead of `postgres`, `cache` instead of `redis`).
+- **Dependency Management:** Be mindful of service dependencies (`depends_on`). Only start the services absolutely necessary for the current task to avoid resource exhaustion and unnecessary overhead.
+- **Home Directory Persistence:** Mount the container user's home directory into a local volume within the repository (e.g., `.docker/home`). This preserves bash history, cache, and allows for `.bashrc` customizations that stay under the developer's control.
 
-## 4. Infrastructure as Code (IaC) Integration
+## 4. Execution Workflow
+- **Rule:** AI agents **must** use `docker compose` to execute all project commands.
+- **Primary Path:** Start the necessary container(s) in the background (`docker compose up -d <service>`) and then use `docker compose exec <service> <command>` for all subsequent operations.
+- **Isolation:** Avoid installing system-level dependencies on the host. Everything required for the application must be encapsulated within the Docker environment.
+
+## 5. Infrastructure as Code (IaC) Integration
 - **Container Registry:** All production-ready images should be pushed to a private registry (GitHub Container Registry or equivalent).
 - **Deployment:** Infrastructure for container orchestration (ECS, Kubernetes, etc.) must be defined in Terraform as per `01-architecture.md`.
 
