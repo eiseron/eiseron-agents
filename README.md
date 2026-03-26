@@ -11,8 +11,9 @@ This repository contains directives and standards for AI Agents operating across
 - **[skills/](skills/):** Detailed behavior modules and technical standards.
     - `01-architecture.md`: Clean Architecture and Design Patterns.
     - `02-docker-infra.md`: Infrastructure and container standards.
-    - `03-testing-bdd.md`: Testing methodology (TDD/BDD).
+    - `03-testing-bdd.md`: Testing methodology (TDD/BDD) and Testing Pyramid.
     - `04-git-workflow.md`: Git workflow and Conventional Commits.
+    - `05-frontend.md`: Frontend styling (Pure CSS) and Webview standards.
 
 ## Usage
 
