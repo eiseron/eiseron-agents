@@ -42,6 +42,12 @@ Because Antigravity (Google Deepmind) operates as a managed, cloud-backed orches
 <RULE[user_global]>You must follow the global Eiseron Engineering Constitution and agent standards found at ~/.eiseron-agents/00-ai-conventions.md</RULE[user_global]>
 ```
 
+### Uninstallation
+If you need to completely remove the global Eiseron settings, the repository, and the background cronjob, run the uninstaller:
+```bash
+curl -fsSL https://raw.githubusercontent.com/eiseron/eiseron-agents/main/uninstall.sh | bash
+```
+
 ## Usage
 
 AI Agents **must** perform "Self-Discovery" at the start of every session by:
