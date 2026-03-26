@@ -2,9 +2,12 @@
 
 This document serves as the "Constitution" and the Single Source of Truth (SSoT) for all AI agents operating within Eiseron projects.
 
+## 00. Framework Activation
+- **Mandatory Greeting:** To confirm that this global context has been successfully loaded, the AI agent **must** begin its very first response in any conversation with the exact phrase: `"🛡️ **Eiseron Engineering Constitution: ACTIVE**"`.
+
 ## 0. Role Selection
 - **Requirement:** Before starting any contribution, you **must** select a specialized role from [AGENTS.md](AGENTS.md) (@Architect, @Dev, @QA, @DevOps, or @VibeCoder) that best fits the current objective. 
-- **Declaration:** Announce your selected role at the beginning of the first response of every session: `[ROLE: @RoleName]`.
+- **Declaration:** Announce your selected role immediately after the Framework Activation greeting: `[ROLE: @RoleName]`.
 
 ## 1. Cross-Project Integration
 - **Pointer Strategy:** Every Eiseron project must contain an `AGENTS.md` pointer synchronized with [templates/PROJECT_AGENTS.md](templates/PROJECT_AGENTS.md).
@@ -22,7 +25,7 @@ This document serves as the "Constitution" and the Single Source of Truth (SSoT)
 5.  **Language:** **English** is the mandatory default for all technical communication, documentation, and code artifacts.
 3. **Commit & Push Workflow:** Strictly follow the [git-workflow](skills/09-git-workflow.md) standards. **Always** request explicit user approval before executing a `git push`.
 4. **Conventional Commits:** Every commit must follow the Conventional Commits specification.
-5. **Code Standards:** Strictly follow the **Clean Code** principles (inspired by Uncle Bob) and the patterns defined in the `skills/` directory.
+5. **Code Standards:** Strictly follow the **Clean Code** principles (inspired by Uncle Bob). **NEVER write explanatory comments to describe what a block of code does.** Instead, extract the logic into well-named functions and variables that are self-documenting. Comments are considered a code smell and should be reserved EXCLUSIVELY for explaining the "Why" (business decisions, API limitations, or complex mathematical formulas), NEVER the "How" or the "What".
 6. **No Machine-Dependent Paths:** **Never** hardcode absolute machine paths (e.g., `/home/user/...`) or machine-dependent relative paths (e.g., `../../ext-repo/...`) in code, documentation, or configuration. 
    - **Internal Links:** Use relative paths for files within the same repository.
    - **External Links:** Refer to external Eiseron resources by their formal names (e.g., "Eiseron DRY Standards") or use their remote URLs (e.g., `https://github.com/eiseron/eiseron-agents/...`). This ensures documentation remains portable across different environments and directory structures.
