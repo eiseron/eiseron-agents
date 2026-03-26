@@ -17,6 +17,9 @@ This document defines the naming conventions, schema design, and operational sta
 ## 3. Schema Management
 - **Migrations:** All schema changes must be applied via **migrations** that are version-controlled within the application repository.
 - **Consistency:** Never perform manual schema modifications in production. Every update must be buildable and repeatable through the automation pipeline.
+- **Mandatory Migrations:** Apply **all** schema changes exclusively through version-controlled migrations. Direct modifications to the database structure within code or manually in production are strictly prohibited.
+- **Incremental Changes:** Maintain an immutable migration history. Use new, incremental migrations for any structural adjustments to previously executed or pushed schema changes.
+- **Local Correction Exception:** Modifying an existing migration file is permitted only if the migration has not yet been pushed to the remote repository or executed in a shared environment (e.g., Beta or Production).
 
 ## 4. Data Design
 - **Constraints:** Leverage database-level constraints (Unique, Not Null, Check, Foreign Key) to ensure data integrity beyond the application layer.

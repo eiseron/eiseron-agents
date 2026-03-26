@@ -28,7 +28,8 @@ This document defines the security requirements and best practices for all Eiser
 - **SQL Injection:** Always use parameterized queries or trusted ORMs (like Ecto or GORM) to prevent SQL injection.
 
 ## 5. Protection & Monitoring
+- **Secrets Management:** **Never** hardcode secrets, API keys, or environment variables directly into the source code. Use environment variables, secret managers, or encrypted configuration files.
 - **Rate Limiting:** Implement rate limiting on all public endpoints, especially authentication and sensitive data submission routes, to mitigate brute-force and DoS attacks.
 - **Security Headers:** Always include standard security headers (e.g., `Content-Security-Policy`, `X-Content-Type-Options`, `Strict-Transport-Security`).
-- **Encryption:** Ensure encryption in transit (TLS 1.2+) and at rest for all sensitive data. Use strong, salted hashing algorithms (e.g., Argon2, bcrypt) for passwords.
+- **Encryption:** Ensure encryption in transit (TLS 1.2+) and at rest for all sensitive data. **Use Argon2id** as the mandatory hashing algorithm for passwords.
 - **Audit Logging:** Maintain logs for sensitive actions (login attempts, permission changes, data exports) for security auditing.
