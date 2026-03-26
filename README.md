@@ -18,6 +18,7 @@ This repository contains directives and standards for AI Agents operating across
     - `07-documentation.md`: Documentation standards (Sync, Format, and Types).
     - `08-database-standards.md`: Database naming, schema, and auditing rules.
     - `09-observability-ops.md`: Logging, monitoring, and health standards.
+    - `10-dependency-management.md`: Rules for selection, justification, and security of third-party libraries.
 
 ## Usage
 
