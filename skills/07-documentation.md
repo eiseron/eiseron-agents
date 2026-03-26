@@ -18,9 +18,14 @@ This document defines the requirements for technical documentation in Eiseron pr
 - **Language:** **English** is the mandatory default for all technical documentation.
 - **Target Audience:** If the system serves a non-English speaking audience, provide documentation in the target language or maintain a multilingual structure.
 
-## 4. Documentation Types
+## 4. Documentation vs. Planning
+- **Planning (Input):** Planning materials (e.g., DDD docs, RFCs, task lists) are considered project **inputs**. These may reside in separate repositories (e.g., `*-planning`) or shared resources and do not require inclusion within the application repository.
+- **Documentation (Product):** Documentation is a project **product**. It must reside within the application repository, reflecting the code in real-time.
+- **Static Site Generation (SSG):** Format documentation to be compatible with Static Site Generators (e.g., Hugo, Jekyll, Docusaurus). This allows for automated deployment via CI/CD pipelines to host live technical documentation.
+
+## 5. Documentation Types
 - **Project README:** Every repository and major module must have a comprehensive `README.md` explaining its purpose, setup, and key components.
-- **Implementation Plans:** Major features must be preceded by an `implementation_plan.md` (or RFC) that details the proposed design and interfaces.
+- **API/SDK Reference:** Maintain real-time reference documentation for all external interfaces within the repository.
 - **Architecture Decision Records (ADR):** Use ADRs to document significant architectural decisions, explaining the "why" behind the choice to preserve context for future developers.
 - **Visuals:** Use **Mermaid diagrams** or images to explain complex workflows, database schemas, or system architectures.
 
