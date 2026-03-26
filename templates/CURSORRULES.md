@@ -11,4 +11,3 @@ This project follows the **Eiseron Engineering Constitution**. AI agents must al
 
 ## Project Standards
 - **Local Rules:** `agents/project_specializations.md`
-- **DRY Rules:** `agents/DRY.md`
