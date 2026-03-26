@@ -20,11 +20,11 @@ We strictly follow the **Testing Pyramid** principle to ensure a balanced and ef
     - Elixir: Use `ExUnit`. For complex user flows, use `Phoenix.LiveViewTest` for fast, headless behavioral testing.
     - Go: Use the standard `testing` package with assertions libraries if necessary.
 
-## 3. Test Categories
+## 4. Test Categories
 
 ### Unit Tests
 - **Scope:** Isolate functions or modules.
-- **Speed:** Must be extremely fast. Use mocks/stubs for external dependencies only when absolutely necessary (prefer dependency injection or state management).
+- **Speed:** Ensure tests are extremely fast. Prioritize dependency injection or state management over mocks/stubs, using them only when necessary for external dependencies.
 
 ### Integration Tests
 - **Scope:** Test the interaction between multiple modules or services (e.g., App + Database).
@@ -34,12 +34,12 @@ We strictly follow the **Testing Pyramid** principle to ensure a balanced and ef
 - **Scope:** Test the entire system as a black box.
 - **Strategy:** Limit E2E tests to critical business flows (e.g., user signup, payment, core monitoring alert).
 
-## 4. Writing Clean Tests
+## 5. Writing Clean Tests
 - **Descriptive Names:** Test names should clearly state the expected behavior (e.g., `test "increments counter when button is clicked"`).
-- **Isolation:** Tests must be independent. Never rely on the state left by a previous test.
+- **Isolation:** Maintain test independence. Ensure each test is responsible for its own state.
 - **Setup/Teardown:** Use proper hooks for database cleanup and mock initialization. In Elixir, leverage `DataCase` and `ConnCase` for predictable state.
 
-## 5. Quality Metrics
+## 6. Quality Metrics
 - **Coverage:** Aim for high coverage on critical business logic, but prioritize testing *meaningful behaviors* over hitting 100% line coverage on trivial code.
 - **Performance:** If a test suite becomes slow, investigate and optimize. Slow tests lead to skipped tests.
 - **Consistency:** Use `mix test` (Elixir) and `go test` (Go) as the standard entry points.
