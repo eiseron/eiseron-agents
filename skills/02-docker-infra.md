@@ -7,14 +7,18 @@ This document defines the containerization and infrastructure standards for Eise
 - **Development Environment:** Always provide a `compose.yml` that sets up the entire development stack (app, databases, caches, etc.).
 - **Consistency:** The development environment should mirror production as closely as possible (same base images, same versions).
 
-## 2. Dockerfile Best Practices
-- **Multi-stage Builds:** Use multi-stage builds to keep production images small and secure.
-- **Unprivileged Users:** Never run applications as `root` inside the container. Always create and use a dedicated user (e.g., `appuser`).
-- **Standard Base Images:**
-    - Elixir/Phoenix: Use official `hexpm/elixir` images.
-    - Go: Use official `golang` (alpine variants for production).
-    - Node.js: Use official `node` (alpine variants for production).
-- **Caching:** Structure `Dockerfile` layers to maximize build cache efficiency (e.g., copy dependency manifests first).
+## 2. Dockerfile & Image Selection
+
+### Production Images
+- **Base Images:** Prioritize **distroless** or **slim** variants (e.g., Debian-slim) for production.
+- **Compatibility:** Avoid Alpine images unless specifically required by the technology (like Go), but even then, **distroless** is the preferred choice for maximum compatibility and security.
+- **Multi-stage Builds:** Always use multi-stage builds to produce the final, minimal production image.
+
+### Development Environment
+- **Base Images:** Use standard **Debian-based** images for development. This ensures a rich set of development tools and better compatibility with debugging utilities.
+- **Workflow:** **Avoid** creating dedicated `Dockerfile.dev` files by default. Instead, use official images directly in the `compose.yml` file. Focus on making the development environment highly optimized for developer productivity and speed, while keeping the production environment optimized for security and size separately. Only create a custom development Dockerfile if unique requirements exist that cannot be met by the official image.
+
+### Image Best Practices
 - **Arbitrary Users:** Always use arbitrary (non-root) users inside containers. **Root user is FORBIDDEN** inside containers except in extremely specific cases.
 
 ## 3. Docker Compose & Environment Management
