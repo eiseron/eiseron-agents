@@ -65,3 +65,8 @@ When `main` contains unstable code that cannot yet be released:
 - **Temporary Configurations:** Maintain project configuration integrity. Ephemeral adjustments made to resolve local environment issues (e.g., temporary port changes in `compose.yml`) must be excluded from repository commits.
 - **Docker Home Persistence:** The `.docker/home` directory (standard for home persistence) must be **strictly excluded** from version control via `.gitignore`. 
     - **Exception:** If a specific configuration file (e.g., a customized `.bashrc` or `.zshrc`) is required for the development environment, it may be committed explicitly, but the rest of the directory remains ignored.
+
+## 11. AI Agent Specific Enforcement
+- **Branch-First Rule:** AI agents are **prohibited** from performing any write operations (code, docs, or config) while on the `main` branch. 
+- **Initialization:** Upon starting a task, agents successfully executing `git status` and finding themselves on `main` must **immediately** create a feature branch before proceed with any modifications.
+- **Self-Correction:** If a modification was mistakenly made on `main`, the agent must **immediately** reset `main` and move the changes to a proper feature branch before requesting user review.
