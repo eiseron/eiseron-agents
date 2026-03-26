@@ -4,31 +4,30 @@ set -e
 EISERON_DIR="$HOME/.eiseron-agents"
 REPO_URL="https://github.com/eiseron/eiseron-agents.git"
 
-echo "🛡️ Installing Eiseron Engineering Constitution..."
+clone_or_update_repository() {
+    if [ -d "$EISERON_DIR/.git" ]; then
+        echo "🔄 Repository already exists. Updating..."
+        cd "$EISERON_DIR"
+        git fetch origin main
+        git reset --hard origin/main
+        git clean -fd
+    else
+        echo "📥 Cloning repository to $EISERON_DIR..."
+        git clone "$REPO_URL" "$EISERON_DIR"
+    fi
+}
 
-# 1. Clone or update repository
-if [ -d "$EISERON_DIR/.git" ]; then
-    echo "🔄 Repository already exists. Updating..."
-    cd "$EISERON_DIR"
-    git fetch origin main
-    git reset --hard origin/main
-    git clean -fd
-else
-    echo "📥 Cloning repository to $EISERON_DIR..."
-    git clone "$REPO_URL" "$EISERON_DIR"
-fi
+setup_auto_update_cronjob() {
+    local cron_cmd="*/15 * * * * cd $EISERON_DIR && git fetch origin main && git reset --hard origin/main > /dev/null 2>&1"
+    
+    if crontab -l 2>/dev/null | grep -q "$EISERON_DIR"; then
+        echo "✅ Cronjob already configured. Skipping..."
+    else
+        echo "⏳ Setting up auto-update cronjob (every 15 min)..."
+        (crontab -l 2>/dev/null; echo "$cron_cmd") | crontab -
+    fi
+}
 
-# 2. Setup Cronjob (Every 15 minutes)
-CRON_CMD="*/15 * * * * cd $EISERON_DIR && git fetch origin main && git reset --hard origin/main > /dev/null 2>&1"
-# Check if cronjob exists
-if crontab -l 2>/dev/null | grep -q "$EISERON_DIR"; then
-    echo "✅ Cronjob already configured. Skipping..."
-else
-    echo "⏳ Setting up auto-update cronjob (every 15 min)..."
-    (crontab -l 2>/dev/null; echo "$CRON_CMD") | crontab -
-fi
-
-# 3. Setup global AI pointers
 setup_global_rules() {
     local target_file="$1"
     local pointer="# --- EISERON GLOBAL POINTER ---"
@@ -48,10 +47,22 @@ setup_global_rules() {
     fi
 }
 
-echo "⚙️ Configuring Global Agent Contexts..."
-setup_global_rules "$HOME/.cursorrules"
-setup_global_rules "$HOME/.windsurfrules"
+setup_global_agent_contexts() {
+    echo "⚙️ Configuring Global Agent Contexts..."
+    setup_global_rules "$HOME/.cursorrules"
+    setup_global_rules "$HOME/.windsurfrules"
+}
 
-echo ""
-echo "🎉 Eiseron Engineering Constitution installed successfully!"
-echo "AI Agents will now load global context from ~/.eiseron-agents"
+main() {
+    echo "🛡️ Installing Eiseron Engineering Constitution..."
+    
+    clone_or_update_repository
+    setup_auto_update_cronjob
+    setup_global_agent_contexts
+    
+    echo ""
+    echo "🎉 Eiseron Engineering Constitution installed successfully!"
+    echo "AI Agents will now load global context from ~/.eiseron-agents"
+}
+
+main
