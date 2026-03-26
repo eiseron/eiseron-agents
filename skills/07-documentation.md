@@ -9,9 +9,11 @@ This document defines the requirements for technical documentation in Eiseron pr
     - **SDKs:** Libraries or client modules.
     - **Infrastructure:** CLI tools and deployment scripts.
 
-## 2. Synchronization with Code
-- **Rule:** Documentation must be updated in the **same commit** that introduces or modifies an interface. Documentation and code must never be out of sync.
-- **Verification:** Before pushing any change, verify that all relevant documentation (READMEs, API docs, planning files) reflects the current state of the code.
+## 2. Doc-as-Code Methodology
+- **Directory Standard:** Maintain all technical documentation within a dedicated `/docs` directory in the application repository.
+- **In-PR Synchronization:** **Mandatorily** include all required documentation updates within the same Pull Request that introduces or modifies a feature. Documentation and code must always remain in lockstep.
+- **Versioned Publication:** Configure Git Tag pipelines to trigger the build and publication of versioned documentation (e.g., `/docs/v1.x`, `/docs/v2.x`).
+- **Distribution Branch:** Utilize an isolated branch (e.g., `docs-static` or `gh-pages`) specifically for hosting final, static documentation files. This ensures that the documentation remains accessible to users across multiple historical versions.
 
 ## 3. Format & Language
 - **Format:** Use **Markdown** (`.md`) as the primary format for all technical documentation.
@@ -29,7 +31,7 @@ This document defines the requirements for technical documentation in Eiseron pr
 - **Architecture Decision Records (ADR):** Use ADRs to document significant architectural decisions, explaining the "why" behind the choice to preserve context for future developers.
 - **Visuals:** Use **Mermaid diagrams** or images to explain complex workflows, database schemas, or system architectures.
 
-## 5. Examples & Clarity
+## 6. Examples & Clarity
 - **Usage Examples:** Provide clear, copy-pasteable code examples for every API endpoint or SDK function.
 - **Conciseness:** Keep documentation focused and concise. Avoid redundant explanations and prioritize clarity of use over internal implementation details.
 - **Self-Documentation:** Remember that code should be self-documenting (per `01-architecture.md`). External documentation should focus on **intent**, **interfaces**, and **usage**.
