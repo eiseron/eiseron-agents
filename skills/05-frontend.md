@@ -25,12 +25,12 @@ This document defines the frontend development and styling standards for Eiseron
     - Maintain high color contrast for readability.
     - Convey information through multiple channels (text, icons, patterns), ensuring clarity for all users.
 
-## 3. Styling Principles
+## 4. Styling Principles
 - **Semantic Classes:** Use meaningful class names that describe the *purpose* of the element, not its appearance.
 - **CSS Variables:** Use CSS variables (Custom Properties) for theme colors, spacing, and typography to ensure consistency and easy updates.
 - **Mobile First:** Always design for mobile first and use media queries to enhance the layout for larger screens.
 - **Animations:** Use CSS animations for simple transitions and micro-interactions. Keep them subtle and performant.
 
-## 3. Framework Integration
+## 5. Framework Integration
 - **Phoenix LiveView:** As per `01-architecture.md`, we use Phoenix LiveView to manage state and DOM updates. CSS should be structured to complement LiveView's component model.
 - **Minimal JavaScript:** Only use custom JavaScript for features that cannot be easily achieved with CSS or LiveView hooks.

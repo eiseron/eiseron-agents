@@ -10,7 +10,7 @@ This document defines the requirements for technical documentation in Eiseron pr
     - **Infrastructure:** CLI tools and deployment scripts.
 
 ## 2. Doc-as-Code Methodology
-- **Directory Standard:** Maintain all technical documentation within a dedicated `/docs` directory in the application repository.
+- **Directory Standard:** Maintain all technical documentation within a dedicated `/docs` directory located at the **project root**.
 - **In-PR Synchronization:** **Mandatorily** include all required documentation updates within the same Pull Request that introduces or modifies a feature. Documentation and code must always remain in lockstep.
 - **Versioned Publication:** Configure Git Tag pipelines to trigger the build and publication of versioned documentation (e.g., `/docs/v1.x`, `/docs/v2.x`).
 - **Distribution Branch:** Utilize an isolated branch (e.g., `docs-static` or `gh-pages`) specifically for hosting final, static documentation files. This ensures that the documentation remains accessible to users across multiple historical versions.

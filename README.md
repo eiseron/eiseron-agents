@@ -16,6 +16,8 @@ This repository contains directives and standards for AI Agents operating across
     - `05-frontend.md`: Frontend styling (Pure CSS) and Webview standards.
     - `06-security.md`: Security standards (Auth, Authorization, and Testing).
     - `07-documentation.md`: Documentation standards (Sync, Format, and Types).
+    - `08-database-standards.md`: Database naming, schema, and auditing rules.
+    - `09-observability-ops.md`: Logging, monitoring, and health standards.
 
 ## Usage
 

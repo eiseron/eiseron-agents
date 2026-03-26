@@ -2,6 +2,10 @@
 
 This document defines the security requirements and best practices for all Eiseron projects. Security is a non-negotiable part of our development lifecycle.
 
+## 0. Secure-by-Default Principle
+- **Requirement:** **Every** new API endpoint, LiveView page, or resource must be protected by authentication and authorization by default.
+- **Rule:** Granting public access or bypassing security checks requires explicit justification and must be a conscious, documented decision.
+
 ## 1. Authentication & Session Management
 - **Opaque Tokens:** Prefer **opaque tokens** for authentication. These tokens are stored on the server side, allowing for immediate revocation and tracking of device/session details.
 - **Web Authentication:** For web applications, **always** use cookies for session management. Cookies must be protected with the following attributes:
