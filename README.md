@@ -32,8 +32,8 @@ The following modules provide detailed standards for various engineering domains
 ## Usage
 
 AI Agents **must** perform "Self-Discovery" at the start of every session by:
-1. Listing the files in this repository.
-2. Reading the contents of `00-ai-conventions.md`.
-3. Reading relevant skill modules based on the task at hand.
+1. Listing the files in this repository to identify available skills.
+2. Reading [00-ai-conventions.md](00-ai-conventions.md) and [AGENTS.md](AGENTS.md).
+3. Reading specific skill modules **on-demand (lazy-loading)** as required by the current objective to preserve context tokens.
 
 All code generated must strictly adhere to these guidelines. Any deviation requires explicit user approval.
