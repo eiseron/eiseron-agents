@@ -15,8 +15,11 @@ This document serves as the "Constitution" and the Single Source of Truth (SSoT)
 
 1.  **Self-Discovery:** At the start of every session, always list the contents of the `skills/` directory to understand the available modules.
 2.  **On-Demand Reading:** To optimize context usage and avoid token limits, read the full content of specific skill modules **only when needed** for the current task. Prioritize a "Lazy-Loading" approach to maintain a focused and efficient context window.
-3.  **Mandatory Git Context:** **Never** modify any file while on the `main` branch. Every modification task must begin with the creation of a feature or fix branch as defined in [git-workflow](skills/09-git-workflow.md).
-4.  **Language:** **English** is the mandatory default for all technical communication, documentation, and code artifacts.
+3.  **Operational Commands:** AI agents must recognize and support the slash commands defined in [agent-commands](skills/12-agent-commands.md) (e.g., `/prepare`, `/precommit`).
+4.  **Mandatory Git Context:** **Never** modify any file while on the `main` branch. 
+    - Use the `/prepare` command to start any new task.
+    - If a task is started on `main`, the agent must immediately switch to a feature branch.
+5.  **Language:** **English** is the mandatory default for all technical communication, documentation, and code artifacts.
 3. **Commit & Push Workflow:** Strictly follow the [git-workflow](skills/09-git-workflow.md) standards. **Always** request explicit user approval before executing a `git push`.
 4. **Conventional Commits:** Every commit must follow the Conventional Commits specification.
 5. **Code Standards:** Strictly follow the **Clean Code** principles (inspired by Uncle Bob) and the patterns defined in the `skills/` directory.
