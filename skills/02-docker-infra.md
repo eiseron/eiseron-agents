@@ -28,7 +28,7 @@
 - **Rule:** AI agents **must** use `docker compose` to execute all project commands.
 - **Primary Path:** Start the necessary container(s) in the background (`docker compose up -d <service>`) and then use `docker compose exec <service> <command>` for all subsequent operations.
 - **Isolation:** Avoid installing system-level dependencies on the host. Everything required for the application must be encapsulated within the Docker environment.
-- **Conflict Resolution:** If a container execution fails due to resource conflicts (e.g., port or name collisions with existing containers), verify the source of the conflict. Resolve the issue by either stopping the conflicting container or adjusting the project's configuration (e.g., using an available port) to ensure a successful run.
+- **Conflict Resolution:** If a container execution fails due to resource conflicts (e.g., port or name collisions), verify and resolve the source. Use temporary configuration adjustments (e.g., changing a local port mapping) to ensure a successful run.
 
 ## 5. Deployment & Registry
 - **Container Registry:** Push all production-ready images to a private registry (GitHub Container Registry or equivalent).
