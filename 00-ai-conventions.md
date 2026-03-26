@@ -8,7 +8,7 @@ This document serves as the "Constitution" and the Single Source of Truth (SSoT)
 
 ## 1. Cross-Project Integration
 - **Pointer Strategy:** Every Eiseron project must contain an `AGENTS.md` pointer synchronized with [templates/PROJECT_AGENTS.md](templates/PROJECT_AGENTS.md).
-- **Local Context:** Project-specific logic, overrides, and unique skill modules must be stored in a local `./agents/` directory. 
+- **Project Specializations:** Local logic, extensions, and unique skill modules must be stored in a local `./agents/` directory. 
 - **SSoT Priority:** The central `eiseron-agents` repository remains the primary source of truth for global engineering standards.
 
 ## 2. General Directives

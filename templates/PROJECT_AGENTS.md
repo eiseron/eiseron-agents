@@ -16,8 +16,8 @@ This project strictly adheres to the **Eiseron Engineering Constitution**. AI ag
 - **Initial Task:** Once updated, perform `list_dir` and read `00-ai-conventions.md` and `AGENTS.md` to align with the global constitution and select your role.
 
 ## 2. Project-Specific Context
-- **Local Overrides:** Refer to the local `./agents/` directory for any documentation, skill modules, or overrides unique to this project.
-- **Priority:** In case of conflict, local `./agents/` definitions take precedence over global standards.
+- **Project Specializations:** Refer to the local `./agents/` directory for any documentation, skill modules, or specialized rules unique to this project.
+- **Context Extension:** Local rules in `./agents/` extend the global standards. In case of direct conflict, local definitions take precedence for this specific project.
 
 ## 3. Workflow & Verification
 Follow the atomic commit, testing, and documentation procedures defined in the central repository (`skills/09-git-workflow.md` and `skills/10-documentation.md`).
