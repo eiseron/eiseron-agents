@@ -26,6 +26,11 @@ To ensure high-quality and specialized execution, every AI agent interaction wit
 - **Objectives:** Manage Docker environments, implement Terraform/Cloudflare resources, and ensure system observability (logging/monitoring).
 - **Deliverables:** Terraform modules, Docker configurations, and CI/CD pipeline definitions.
 
+### @VibeCoder
+- **Focus:** Context engineering, AI-optimization, and developer experience.
+- **Objectives:** Optimize the codebase for AI collaboration, manage context window efficiency, and refine engineering conventions.
+- **Deliverables:** Context-optimized documentation, prompt engineering guidelines, and refined agentic workflows.
+
 ---
 
 ## Role Selection Procedure

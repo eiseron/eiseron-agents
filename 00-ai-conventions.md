@@ -3,7 +3,7 @@
 This document serves as the "Constitution" and the Single Source of Truth (SSoT) for all AI agents operating within Eiseron projects.
 
 ## 0. Role Selection
-- **Requirement:** Before starting any contribution, you **must** select a specialized role from [AGENTS.md](AGENTS.md) (@Architect, @Dev, @QA, or @DevOps) that best fits the current objective. 
+- **Requirement:** Before starting any contribution, you **must** select a specialized role from [AGENTS.md](AGENTS.md) (@Architect, @Dev, @QA, @DevOps, or @VibeCoder) that best fits the current objective. 
 - **Declaration:** Announce your selected role at the beginning of the first response of every session: `[ROLE: @RoleName]`.
 
 ## 1. General Directives
