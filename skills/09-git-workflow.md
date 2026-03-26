@@ -27,11 +27,14 @@ This document defines the version control and workflow standards for Eiseron pro
 - **Tags (Production):** Creations of Git tags trigger deployments to the **Production** environment.
 
 ## 5. Development Cycle
-1. Create a branch from `main`: `git checkout -b feature/task-name`.
-2. Implement changes with atomic commits.
-3. Open a Pull Request (PR) targeting the `main` branch.
-4. **Merge Strategy:** Use **Squash and Merge** for short-lived branches (`feature/`, `refactor/`). For **hotfix** branches, use **standard merges** to preserve the full commit history and ensure proper backporting.
-5. Verify the functionality in the **Beta** environment after the automatic deploy.
+- **Branch Strategy:** **Never** commit directly to the `main` branch unless specifically and explicitly instructed by the user.
+- **Workflow Start:** Before beginning any new task, verify the current branch status. If the current branch is completed or if you are on `main`, perform the following:
+    1. Switch to `main`: `git checkout main`.
+    2. Synchronize with the remote: `git pull origin main`.
+    3. Create a descriptive feature branch: `git checkout -b feature/task-name`.
+- **Implementation:** Proceed with changes and commit using atomic, conventional messages.
+- **Merge Strategy:** Use **Squash and Merge** for short-lived branches (`feature/`, `refactor/`). For **hotfix** branches, use **standard merges** to preserve the full commit history and ensure proper backporting.
+- **Verification:** Validate the functionality in the **Beta** environment after the automatic deploy.
 
 ## 6. Release Cycle (Production)
 1. Ensure the `main` branch is stable and all features are validated.
@@ -53,6 +56,7 @@ When `main` contains unstable code that cannot yet be released:
 - **PATCH:** Urgent corrections (hotfixes) applied on top of the latest stable version.
 
 ## 9. Approval & Push Rule
+- **Direct Commits:** Prohibit direct commits to protected branches (e.g., `main`). Maintain all active development in feature or fix branches.
 - **Explicit Approval:** Always request **explicit user approval** before executing a `git push` for any branch or tag.
 - **Mandatory Verification:** Successfully run all linting, compilation, and automated tests (e.g., `mix test`, `go test`) before executing any commit or requesting push approval.
 
