@@ -4,14 +4,24 @@ This document defines standardized slash commands that AI agents must recognize 
 
 ## 1. Core Commands
 
+### `/pull` (Synchronization)
+- **Objective:** Synchronize the current branch with its remote counterpart.
+- **Agent Workflow:**
+    1. Verify the current branch.
+    2. Pull latest changes: `git pull origin <current-branch>`.
+    3. Report success or any conflicts found.
+
 ### `/prepare` (Workbench Initialization)
-- **Objective:** Synchronize the local repository and prepare a new feature branch.
+- **Objective:** Synchronize the local repository, ensure environment integrity, and prepare a new feature branch.
 - **Agent Workflow:**
     1. Switch to `main`: `git checkout main`.
     2. Pull latest changes: `git pull origin main`.
-    3. **Ask the User:** "What will we work on today?"
-    4. Upon response, create a descriptive feature branch: `git checkout -b feature/task-name`.
-    5. List relevant project files to initialize context.
+    3. **Environment Check:** 
+        - Verify if required environment files (e.g., `.env`) exist based on templates (e.g., `.env.example`).
+        - Propose creation/updates if missing.
+    4. **Ask the User:** "What will we work on today?"
+    5. Upon response, create a descriptive feature branch: `git checkout -b feature/task-name`.
+    6. List relevant project files to initialize context.
 
 ### `/precommit` (Quality Assurance)
 - **Objective:** Run the project's automated quality suite.
