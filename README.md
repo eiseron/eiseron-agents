@@ -36,6 +36,12 @@ curl -fsSL https://raw.githubusercontent.com/eiseron/eiseron-agents/main/install
 ```
 This script is idempotent. It securely clones the repository to `~/.eiseron-agents`, sets up a background auto-update task, and injects the global pointers into your AI IDE configurations (Cursor, Windsurf).
 
+### Antigravity Configuration
+Because Antigravity (Google Deepmind) operates as a managed, cloud-backed orchestrator, it does not read local configuration files like `~/.cursorrules` automatically. To ensure Antigravity follows the Eiseron Constitution globally, each developer **must** manually add the following directive to their global Antigravity `user_rules` settings interface:
+```xml
+<RULE[user_global]>You must follow the global Eiseron Engineering Constitution and agent standards found at ~/.eiseron-agents/00-ai-conventions.md</RULE[user_global]>
+```
+
 ## Usage
 
 AI Agents **must** perform "Self-Discovery" at the start of every session by:
