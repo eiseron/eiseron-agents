@@ -1,30 +1,25 @@
-# Docker & Infrastructure Standards
-
-This document defines the containerization and infrastructure standards for Eiseron projects. Consistent environment management is critical for high-velocity AI development.
-
-## 1. Universal Containerization
-- **Rule:** Every application component must have a corresponding `Dockerfile`.
-- **Development Environment:** Always provide a `compose.yml` that sets up the entire development stack (app, databases, caches, etc.).
-- **Consistency:** The development environment should mirror production as closely as possible (same base images, same versions).
+## 1. Project Organization
+- **Standard:** Place all Docker-related inputs (Dockerfiles, entrypoint scripts, etc.) within a `.docker/` directory in the project root.
+- **Organization:** Organize these files logically, either by subdirectory (`.docker/prod/Dockerfile`) or by extension (`.docker/Dockerfile.prod`, `.docker/Dockerfile.dev`).
 
 ## 2. Dockerfile & Image Selection
 
 ### Production Images
-- **Base Images:** Prioritize **distroless** or **slim** variants (e.g., Debian-slim) for production.
-- **Compatibility:** Avoid Alpine images unless specifically required by the technology (like Go), but even then, **distroless** is the preferred choice for maximum compatibility and security.
-- **Multi-stage Builds:** Always use multi-stage builds to produce the final, minimal production image.
+- **Base Images:** Prioritize **distroless** or **slim** variants (e.g., Debian-slim).
+- **Selection:** Favor **distroless** for maximum security and reduced footprint. Alpine is acceptable for Go binaries but second-tier compared to distroless.
+- **Construction:** Use multi-stage builds to produce the final, hardened production image.
 
 ### Development Environment
-- **Base Images:** Use standard **Debian-based** images for development. This ensures a rich set of development tools and better compatibility with debugging utilities.
-- **Workflow:** **Avoid** creating dedicated `Dockerfile.dev` files by default. Instead, use official images directly in the `compose.yml` file. Focus on making the development environment highly optimized for developer productivity and speed, while keeping the production environment optimized for security and size separately. Only create a custom development Dockerfile if unique requirements exist that cannot be met by the official image.
+- **Base Images:** Use standard **Debian-based** images. This provides a rich toolset (bash, curl, build-essential) required for efficient development.
+- **Workflow:** Use official images directly in the `compose.yml` file. Create a custom development Dockerfile only when base images cannot meet specific developmental requirements.
 
-### Image Best Practices
-- **Arbitrary Users:** Always use arbitrary (non-root) users inside containers. **Root user is FORBIDDEN** inside containers except in extremely specific cases.
+### Security
+- **Arbitrary Users:** Ensure all applications run under an unprivileged user. Maintain containers as **non-root** environments.
 
-## 3. Docker Compose & Environment Management
-- **Service Naming:** Service names must reflect their **function**, not the technology (e.g., use `db` instead of `postgres`, `cache` instead of `redis`).
-- **Dependency Management:** Be mindful of service dependencies (`depends_on`). Only start the services absolutely necessary for the current task to avoid resource exhaustion and unnecessary overhead.
-- **Home Directory Persistence:** Mount the container user's home directory into a local volume within the repository (e.g., `.docker/home`). This preserves bash history, cache, and allows for `.bashrc` customizations that stay under the developer's control.
+## 3. Docker Compose & Resource Optimization
+- **Service Naming:** Name services according to their **function** (e.g., `db`, `cache`, `api`) rather than the underlying technology.
+- **Dependency Awareness:** Start only the services required for the specific task at hand to conserve system resources and ensure stability.
+- **Home Persistence:** Map the container user's home directory to `.docker/home` within the repository to preserve bash history, caches, and custom shell configurations.
 
 ## 4. Execution Workflow
 - **Rule:** AI agents **must** use `docker compose` to execute all project commands.
