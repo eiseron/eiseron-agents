@@ -44,7 +44,20 @@ We prioritize tools that offer the best balance of efficiency and execution cost
 ### 3. Modular Monolith & DDD
 - **Context Separation:** Even when developed as a monolith, organized the application strictly by the **Bounded Contexts** defined during the DDD phase.
 - **Inter-Module Communication:** Ensure all communication between modules respects the directions defined by the DDD architecture. Accessing a resource (e.g., database table) managed by another module directly is prohibited.
+- **Internal Integration:** Prioritize **Server-Side Rendering (SSR)** for internal application logic to maintain simplicity and performance.
 - **Internal APIs:** Each module must expose an internal API (a well-defined set of public methods) for consumption by other modules. This ensures that the system is ready for a future transition to microservices with minimal refactoring.
+
+---
+
+## API & Microservices Strategy
+
+### 1. Public APIs
+- **Standard:** Use **Pure REST** principles for all public-facing APIs.
+- **Documentation:** Mandatory, real-time documentation is required for every public endpoint to facilitate seamless external integrations.
+
+### 2. Inter-Service Communication
+- **Standard:** In a microservices architecture, prioritize high-performance communication via **gRPC** or **native language/framework features** (e.g., Elixir's distributed node communication).
+- **Service Isolation:** Each microservice should manage its own public API and documentation when exposing features externally.
 
 ### 4. Rigorous Planning
 - **DDD Phase:** Document a detailed Domain-Driven Design plan (Bounded Contexts, Aggregates) before any coding occurs.
