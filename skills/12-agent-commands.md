@@ -45,9 +45,10 @@ This document defines standardized slash commands that AI agents must recognize 
     3. **Request Push Approval:** "May I have your approval to push the current branch?"
     4. Upon approval:
         - Identify the hosting platform (GitHub, GitLab, etc.) via remote URL.
+        - **Tool Check:** Ensure the necessary CLI (e.g., `gh`, `glab`) is installed and authenticated (e.g., `GH_TOKEN` or `GLAB_TOKEN` must be set).
         - Push the branch: `git push origin <branch-name>`.
-        - Create a Pull Request (PR) or Merge Request (MR) using the appropriate CLI (e.g., `gh pr create`, `glab mr create`).
-        - **Provide Link:** Display the URL of the created PR/MR to the user for evaluation.
+        - Create a Pull Request (PR) or Merge Request (MR).
+        - **Provide Direct Link:** Display the exact URL of the created PR/MR (not the generic repository link) to the user for evaluation.
 
 ### `/finish` (Workbench Cleanup)
 - **Objective:** Finalize the current task and return to a clean base state.
