@@ -37,13 +37,17 @@ This document defines standardized slash commands that AI agents must recognize 
     2. Compare and synchronize `AGENTS.md`, `.cursorrules`, `.windsurfrules`, and other standard pointers with their respective templates.
     3. Report any discrepancies found and corrected.
 
-### `/push` (Finalization)
-- **Objective:** Validate changes and request permission to push.
+### `/push` (Finalization & Review)
+- **Objective:** Validate changes, push to remote, and initiate formal human review.
 - **Agent Workflow:**
     1. Run `/precommit`.
-    2. If successful, summarize the changes made in the branch.
-    3. **Request Explicit Approval:** "May I have your approval to push the current branch to origin?"
-    4. Upon approval, execute `git push origin <branch-name>`.
+    2. If successful, summarize the changes.
+    3. **Request Push Approval:** "May I have your approval to push the current branch?"
+    4. Upon approval:
+        - Identify the hosting platform (GitHub, GitLab, etc.) via remote URL.
+        - Push the branch: `git push origin <branch-name>`.
+        - Create a Pull Request (PR) or Merge Request (MR) using the appropriate CLI (e.g., `gh pr create`, `glab mr create`).
+        - **Provide Link:** Display the URL of the created PR/MR to the user for evaluation.
 
 ### `/finish` (Workbench Cleanup)
 - **Objective:** Finalize the current task and return to a clean base state.
