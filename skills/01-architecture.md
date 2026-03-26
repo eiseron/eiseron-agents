@@ -5,8 +5,9 @@ This document defines the high-level architectural patterns and engineering stan
 ## Core Principles
 
 ### 1. Uncle Bob's Clean Code
-- **Rule:** Prioritize **Clean Code** as defined by Robert C. Martin (Uncle Bob).
-- **Focus:** Write code that is readable, maintainable, and self-documenting. Prioritize meaningful names, small functions, and clear separation of concerns within the vertical context.
+- **Rule:** **Strictly** follow the **Clean Code** principles as defined by Robert C. Martin (Uncle Bob).
+- **Readability:** Prioritize **self-documenting code** over comments. Create small, focused methods with highly descriptive names that clearly state their purpose. If a block of code requires a comment to explain *what* it does, refactor it into a named function instead.
+- **Focus:** Maintain small functions and clear separation of concerns within the vertical context.
 
 ### 2. Vertical Development
 - **Standard:** Implement features **vertically**, handling the entire stack from the database to the UI.

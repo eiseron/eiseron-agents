@@ -3,14 +3,20 @@
 This document defines the frontend development and styling standards for Eiseron projects. We prioritize simplicity, maintainability, and control over external dependencies.
 
 ## 1. Pure CSS over Frameworks
-- **Policy:** We **prefer Pure CSS** over utility-first frameworks like Tailwind, Bootstrap, or other CSS-in-JS libraries.
+- **Requirement:** **Always use Pure CSS** for all styling needs. Avoid utility-first frameworks like Tailwind, Bootstrap, or other CSS-in-JS libraries.
 - **Rationale:**
-    - **Self-Reliance:** We avoid being held hostage by external tools or their breaking changes.
-    - **Performance:** Full control over bundle sizes. We only include the CSS we actually use.
-    - **Capability:** Modern CSS is powerful and well-documented. It offers features (Grid, Flexbox, Variables) that cover almost all layout and styling needs.
-    - **Maintainability:** Semantic CSS classes make the HTML cleaner and more readable compared to utility-class soup.
+    - **Self-Reliance:** Maintain full ownership of the styling architecture without dependency on external third-party tool lifecycles.
+    - **Performance:** Ensure minimal bundle sizes by delivering only the CSS required for the specific application.
+    - **Standardization:** Leverage the native power and documentation of modern CSS (Grid, Flexbox, Variables), which provides a stable and future-proof foundation.
+    - **Maintainability:** Use semantic CSS classes to ensure clean, readable HTML structure.
 
-## 2. Semantic HTML & Accessibility
+## 2. Component-Driven Development (CDD)
+- **Strategy:** Enforce **Component-Driven Development** for all UI construction. Organize components logically within the following structure:
+    - `components/ui` (or `base`): Pure, atomic components (e.g., Buttons, Inputs, Checkboxes). These must be free of business logic and highly reusable across the application.
+    - `components/features` (or `modules`): Logic-rich components (e.g., `LoginForm`, `UserCard`, `ProductGrid`). These combine multiple UI components and handle specific business or state logic.
+    - `components/layout`: Structural components (e.g., `Navbar`, `Sidebar`, `Footer`). These define the global or regional grid structure of the pages.
+
+## 3. Semantic HTML & Accessibility
 - **Rule:** **Always** use Semantic HTML elements (`<header>`, `<main>`, `<footer>`, `<article>`, `<nav>`, etc.) to provide meaning to the structure.
 - **Accessibility (A11y):** Accessibility is a first-class citizen.
     - Ensure proper heading hierarchy (H1 -> H2 -> H3).

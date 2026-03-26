@@ -35,7 +35,9 @@ We strictly follow the **Testing Pyramid** principle to ensure a balanced and ef
 - **Strategy:** Limit E2E tests to critical business flows (e.g., user signup, payment, core monitoring alert).
 
 ## 5. Writing Clean Tests
-- **Descriptive Names:** Test names should clearly state the expected behavior (e.g., `test "increments counter when button is clicked"`).
+- **Self-Documentation:** Prioritize highly readable tests over comments. If a test case is mechanically complex or confusing, split it into separate, smaller tests with descriptive titles instead of adding explanatory comments.
+- **Single Assertion:** **Aim for one assertion (`expect`) per test case (`it`/`test`)**. This ensures that each test verifies exactly one specific behavior, making failures easy to diagnose.
+- **Descriptive Names:** Use names that clearly state the expected behavior (e.g., `test "increments counter when button is clicked"`).
 - **Isolation:** Maintain test independence. Ensure each test is responsible for its own state.
 - **Setup/Teardown:** Use proper hooks for database cleanup and mock initialization. In Elixir, leverage `DataCase` and `ConnCase` for predictable state.
 
