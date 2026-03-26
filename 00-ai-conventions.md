@@ -6,7 +6,12 @@ This document serves as the "Constitution" and the Single Source of Truth (SSoT)
 - **Requirement:** Before starting any contribution, you **must** select a specialized role from [AGENTS.md](AGENTS.md) (@Architect, @Dev, @QA, @DevOps, or @VibeCoder) that best fits the current objective. 
 - **Declaration:** Announce your selected role at the beginning of the first response of every session: `[ROLE: @RoleName]`.
 
-## 1. General Directives
+## 1. Cross-Project Integration
+- **Pointer Strategy:** Every Eiseron project must contain an `AGENTS.md` pointer synchronized with [templates/PROJECT_AGENTS.md](templates/PROJECT_AGENTS.md).
+- **Local Context:** Project-specific logic, overrides, and unique skill modules must be stored in a local `./agents/` directory. 
+- **SSoT Priority:** The central `eiseron-agents` repository remains the primary source of truth for global engineering standards.
+
+## 2. General Directives
 
 1.  **Self-Discovery:** At the start of every session, always list the contents of the `skills/` directory to understand the available modules.
 2.  **On-Demand Reading:** To optimize context usage and avoid token limits, read the full content of specific skill modules **only when needed** for the current task. Prioritize a "Lazy-Loading" approach to maintain a focused and efficient context window.
