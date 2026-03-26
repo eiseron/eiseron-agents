@@ -19,5 +19,7 @@ This document serves as the "Constitution" and the Single Source of Truth (SSoT)
 3. **Commit & Push Workflow:** Strictly follow the [git-workflow](skills/09-git-workflow.md) standards. **Always** request explicit user approval before executing a `git push`.
 4. **Conventional Commits:** Every commit must follow the Conventional Commits specification.
 5. **Code Standards:** Strictly follow the **Clean Code** principles (inspired by Uncle Bob) and the patterns defined in the `skills/` directory.
-6. **No Absolute Paths:** **Never** hardcode absolute machine paths (e.g., `/home/user/...`) in code, documentation, or configuration. Always use relative paths or environment-based path resolution to ensure portability.
+6. **No Machine-Dependent Paths:** **Never** hardcode absolute machine paths (e.g., `/home/user/...`) or machine-dependent relative paths (e.g., `../../ext-repo/...`) in code, documentation, or configuration. 
+   - **Internal Links:** Use relative paths for files within the same repository.
+   - **External Links:** Refer to external Eiseron resources by their formal names (e.g., "Eiseron DRY Standards") or use their remote URLs (e.g., `https://github.com/eiseron/eiseron-agents/...`). This ensures documentation remains portable across different environments and directory structures.
 7. **Architecture:** Adopt the vertical development model and other architectural standards defined in `skills/01-architecture.md`.
