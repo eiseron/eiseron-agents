@@ -1,6 +1,7 @@
 ## 1. Project Organization
 - **Standard:** Place all Docker-related inputs (Dockerfiles, entrypoint scripts, etc.) within a `.docker/` directory in the project root.
-- **Organization:** Organize these files logically, either by subdirectory (`.docker/prod/Dockerfile`) or by extension (`.docker/Dockerfile.prod`, `.docker/Dockerfile.dev`).
+- **Exception:** The `compose.yml` file **may** remain in the project root to facilitate ease of access for developers. 
+- **Organization:** Organize other files logically, either by subdirectory (`.docker/prod/Dockerfile`) or by extension (`.docker/Dockerfile.prod`, `.docker/Dockerfile.dev`).
 
 ## 2. Dockerfile & Image Selection
 

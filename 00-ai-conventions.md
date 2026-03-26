@@ -19,4 +19,5 @@ This document serves as the "Constitution" and the Single Source of Truth (SSoT)
 3. **Commit & Push Workflow:** Strictly follow the [git-workflow](skills/09-git-workflow.md) standards. **Always** request explicit user approval before executing a `git push`.
 4. **Conventional Commits:** Every commit must follow the Conventional Commits specification.
 5. **Code Standards:** Strictly follow the **Clean Code** principles (inspired by Uncle Bob) and the patterns defined in the `skills/` directory.
-6. **Architecture:** Adopt the vertical development model and other architectural standards defined in `skills/01-architecture.md`.
+6. **No Absolute Paths:** **Never** hardcode absolute machine paths (e.g., `/home/user/...`) in code, documentation, or configuration. Always use relative paths or environment-based path resolution to ensure portability.
+7. **Architecture:** Adopt the vertical development model and other architectural standards defined in `skills/01-architecture.md`.

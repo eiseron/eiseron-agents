@@ -63,3 +63,5 @@ When `main` contains unstable code that cannot yet be released:
 ## 10. Ephemeral Resources & Temporary Files
 - **Temporary Files:** When creating files for debugging, testing, or intermediate operations, use directories ignored by Git (e.g., `/tmp` or a project-specific `tmp/` folder). Ensure any newly created temporary directories are added to the `.gitignore` to prevent accidental commitment.
 - **Temporary Configurations:** Maintain project configuration integrity. Ephemeral adjustments made to resolve local environment issues (e.g., temporary port changes in `compose.yml`) must be excluded from repository commits.
+- **Docker Home Persistence:** The `.docker/home` directory (standard for home persistence) must be **strictly excluded** from version control via `.gitignore`. 
+    - **Exception:** If a specific configuration file (e.g., a customized `.bashrc` or `.zshrc`) is required for the development environment, it may be committed explicitly, but the rest of the directory remains ignored.
