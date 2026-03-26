@@ -25,4 +25,4 @@ This document defines the principles for managing third-party dependencies in Ei
 
 ## 5. Implementation Workflow
 - **Pruning:** Regularly review the project's dependency list and remove any libraries that are no longer in use.
-- **Updates:** Maintain dependencies updated to their latest stable versions to benefit from security patches and performance improvements, following the standard [testing-bdd](03-testing-bdd.md) and [git-workflow](04-git-workflow.md) procedures.
+- **Updates:** Maintain dependencies updated to their latest stable versions to benefit from security patches and performance improvements, following the standard [testing-bdd](06-testing-bdd.md) and [git-workflow](09-git-workflow.md) procedures.
