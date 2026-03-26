@@ -17,7 +17,7 @@ This document defines the frontend development and styling standards for Eiseron
     - Use `aria-*` attributes where necessary.
     - Ensure all interactive elements are keyboard-accessible.
     - Maintain high color contrast for readability.
-    - Never rely on color alone to convey information.
+    - Convey information through multiple channels (text, icons, patterns), ensuring clarity for all users.
 
 ## 3. Styling Principles
 - **Semantic Classes:** Use meaningful class names that describe the *purpose* of the element, not its appearance.

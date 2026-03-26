@@ -14,7 +14,7 @@
 - **Workflow:** Use official images directly in the `compose.yml` file. Create a custom development Dockerfile only when base images cannot meet specific developmental requirements.
 
 ### Security
-- **Arbitrary Users:** Ensure all applications run under an unprivileged user. Maintain containers as **non-root** environments.
+- **Arbitrary Users:** **Always** run applications using unprivileged users. Maintain containers as non-root environments to ensure maximum security.
 
 ## 3. Docker Compose & Resource Optimization
 - **Service Naming:** Name services according to their **function** (e.g., `db`, `cache`, `api`) rather than the underlying technology.

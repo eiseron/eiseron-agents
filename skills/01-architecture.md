@@ -35,7 +35,7 @@ We prioritize tools that offer the best balance of efficiency and execution cost
 
 ### 1. Mandatory Containerization
 - **Requirement:** Fully containerize every project using Docker for both runtime and development.
-- **Strategy:** Define all infrastructure as code (IaC) using Terraform or equivalent.
+- **Strategy:** Always define infrastructure as code (IaC) using Terraform or equivalent.
 
 ### 2. Mobile Strategy
 - **Standard:** Use **Webview** clients for mobile applications to leverage existing frontend code and simplify cross-platform updates.
