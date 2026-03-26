@@ -29,6 +29,13 @@ The following modules provide detailed standards for various engineering domains
 10. **Communication & Knowledge**
     - `10-documentation.md`: Documentation standards (Sync, Format, and Types).
 
+## Quick Installation (Global SSoT)
+To enforce these global standards on your local machine and ensure AI agents always have the correct context, run the bootstrap installer:
+```bash
+curl -fsSL https://raw.githubusercontent.com/eiseron/eiseron-agents/main/install.sh | bash
+```
+This script is idempotent. It securely clones the repository to `~/.eiseron-agents`, sets up a background auto-update task, and injects the global pointers into your AI IDE configurations (Cursor, Windsurf).
+
 ## Usage
 
 AI Agents **must** perform "Self-Discovery" at the start of every session by:

@@ -2,9 +2,12 @@
 
 This document serves as the "Constitution" and the Single Source of Truth (SSoT) for all AI agents operating within Eiseron projects.
 
+## 00. Framework Activation
+- **Mandatory Greeting:** To confirm that this global context has been successfully loaded, the AI agent **must** begin its very first response in any conversation with the exact phrase: `"🛡️ **Eiseron Engineering Constitution: ACTIVE**"`.
+
 ## 0. Role Selection
 - **Requirement:** Before starting any contribution, you **must** select a specialized role from [AGENTS.md](AGENTS.md) (@Architect, @Dev, @QA, @DevOps, or @VibeCoder) that best fits the current objective. 
-- **Declaration:** Announce your selected role at the beginning of the first response of every session: `[ROLE: @RoleName]`.
+- **Declaration:** Announce your selected role immediately after the Framework Activation greeting: `[ROLE: @RoleName]`.
 
 ## 1. Cross-Project Integration
 - **Pointer Strategy:** Every Eiseron project must contain an `AGENTS.md` pointer synchronized with [templates/PROJECT_AGENTS.md](templates/PROJECT_AGENTS.md).
