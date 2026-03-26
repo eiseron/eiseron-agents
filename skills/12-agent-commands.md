@@ -43,7 +43,7 @@ This document defines standardized slash commands that AI agents must recognize 
     3. Verify that the working directory is clean.
     4. Report that the workstation is synchronized and ready for the next task.
 
----
+ ---
 
 ## 2. Command Extensions
 Projects may define specialized commands in their local `agents/project_specializations.md`.
