@@ -14,6 +14,7 @@ This repository contains directives and standards for AI Agents operating across
     - `03-testing-bdd.md`: Testing methodology (TDD/BDD) and Testing Pyramid.
     - `04-git-workflow.md`: Git workflow and Conventional Commits.
     - `05-frontend.md`: Frontend styling (Pure CSS) and Webview standards.
+    - `06-security.md`: Security standards (Auth, Authorization, and Testing).
 
 ## Usage
 
