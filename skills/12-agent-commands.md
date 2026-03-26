@@ -35,7 +35,15 @@ This document defines standardized slash commands that AI agents must recognize 
     3. **Request Explicit Approval:** "May I have your approval to push the current branch to origin?"
     4. Upon approval, execute `git push origin <branch-name>`.
 
----
+### `/finish` (Workbench Cleanup)
+- **Objective:** Finalize the current task and return to a clean base state.
+- **Agent Workflow:**
+    1. Switch to `main` in all affected repositories.
+    2. Synchronize all repositories: `git pull origin main`.
+    3. Verify that the working directory is clean.
+    4. Report that the workstation is synchronized and ready for the next task.
+
+ ---
 
 ## 2. Command Extensions
 Projects may define specialized commands in their local `agents/project_specializations.md`.
