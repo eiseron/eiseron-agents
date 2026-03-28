@@ -3,6 +3,7 @@
 This document defines the version control and workflow standards for Eiseron projects. Consistent git practices ensure maintainable history and seamless collaboration across AI agents.
 
 ## 1. Conventional Commits
+- **Language:** **ALL** commit messages MUST strictly be written in English. Do not write commits in Portuguese.
 - **Rule:** Strictly follow the [Conventional Commits](https://www.conventionalcommits.org/) specification.
 - **Commit Types:**
     - `feat`: A new feature.
